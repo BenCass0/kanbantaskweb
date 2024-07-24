@@ -22,7 +22,8 @@ interface FormCard{
 }
 
 
-//Obtaining data in progress
+//Export data in progress
+console.log("Hola");
 export const FormCard:React.FC<FormCard>=({onClose})=>{
     const maxSubTasks=3;
     const methods=useForm<FormValues>({
