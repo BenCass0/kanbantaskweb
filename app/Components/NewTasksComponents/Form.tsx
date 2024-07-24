@@ -21,10 +21,10 @@ interface FormCard{
     onClose:()=>void;
 }
 
+
+//Obtaining data in progress
 export const FormCard:React.FC<FormCard>=({onClose})=>{
-
     const maxSubTasks=3;
-
     const methods=useForm<FormValues>({
         defaultValues:{
             Title:"",
