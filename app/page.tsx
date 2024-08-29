@@ -3,8 +3,10 @@
 import NavBar from "./Components/NavBar";
 import React,{useState} from "react";
 import { NewTask } from "./Components/NewTasksComponents/CardNewTask";
-import {StatusTask} from "./Components/NewTasksComponents/inputCard";
+import {StatusTask} from "./Components/TaskPage";
 import { Header } from "./Components/Header";
+import { ThemeModeProvider } from "./Components/themeModeContext.";
+import { NewTaskProvider } from "./newTaskDataContext";
 export default function Home() {
   const [showNewTask,setShowNewTask]=useState(false);
 
@@ -18,10 +20,14 @@ export default function Home() {
 
   return (
     <main>
-      <NavBar/>
-      <Header onClick={handleAddNewTask}/>
-      <StatusTask/>
-      {showNewTask && <NewTask showNewTask={showNewTask} onClose={handleCloseNewTask}/>}
+      <NewTaskProvider>
+      <ThemeModeProvider>
+        <NavBar/>
+        <Header onClick={handleAddNewTask}/>
+        <StatusTask/>
+        {showNewTask && <NewTask showNewTask={showNewTask} onClose={handleCloseNewTask}/>}
+      </ThemeModeProvider>
+      </NewTaskProvider>
     </main>
   );
 }
